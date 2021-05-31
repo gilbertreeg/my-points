@@ -2,27 +2,27 @@
 
 # dependencies
 **/node_modules
-/client/.pnp
-/client/.pnp.js
+/next/.pnp
+/next/.pnp.js
 
 # testing
-/client/coverage
+/next/coverage
 
 # next.js
-/client/.next/
-/client/out/
+/next/.next/
+/next/out/
 
 # production
-/client/build
+/next/build
 
 # misc
-/client/.DS_Store
+/next/.DS_Store
 *.pem
 
 # debug
-client/npm-debug.log*
-client/yarn-debug.log*
-client/yarn-error.log*
+next/npm-debug.log*
+next/yarn-debug.log*
+next/yarn-error.log*
 
 # local env files
 **/.env

@@ -1,13 +1,6 @@
-const { ApolloServer, gql } = require('apollo-server')
-const data = require('./dataStore/data.json')
+import { gql } from 'apollo-server-micro'
 
-const resolvers = {
-  Query: {
-    customers: () => data.data,
-  },
-}
-
-const typeDefs = gql`
+export default gql`
   type Customer {
     id: ID
     displayName: String
@@ -35,8 +28,3 @@ const typeDefs = gql`
     customers: [Customer]
   }
 `
-const server = new ApolloServer({ typeDefs, resolvers })
-
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`)
-})

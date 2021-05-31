@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const getPositiveInt = (ceiling) => Math.floor(Math.random() * ceiling) + 1
 
-const createStudents = () => {
+const createTestData = () => {
   const customers = []
 
   for (let i = 0; i < 100; i++) {
@@ -43,9 +43,9 @@ const createStudents = () => {
     customers.push(customer)
   }
 
-  return { data: customers }
+  return { data: { customers } }
 }
 
-const customerData = createStudents()
+const data = createTestData()
 
-fs.writeFileSync('../api/dataStore/data.json', JSON.stringify(customerData, null, '\t'))
+fs.writeFileSync('../client/pages/api/dataStore/data.json', JSON.stringify(data, null, '\t'))
