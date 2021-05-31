@@ -1,0 +1,7 @@
+{
+    "editor.codeLens": false,
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    "workbench.iconTheme": "material-icon-theme"
+}
