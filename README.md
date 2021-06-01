@@ -6,15 +6,14 @@ Install packages and generate test data
 
 ```bash
 cd scripts
-
+# intall node packages for data generation
 npm install
-
+# run script to generate test data
 node fakeData
-
+# navigate to the "next" directory
 cd ../next
-
+# install dependencies
 npm install
-
 ```
 
 Run the development server from the "next" directory:
