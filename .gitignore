@@ -36,3 +36,6 @@ next/yarn-error.log*
 **/build
 **/npm-debug.log*
 **/.DS_Store
+
+# data files
+next/dataStore/*
