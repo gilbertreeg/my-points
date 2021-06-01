@@ -1,13 +1,14 @@
 import { ApolloServer } from 'apollo-server-micro'
-import customerSchema from './schema/customer'
-import customerResolvers from './resolvers/customer'
+import { customerResolvers, orderResolvers } from './resolvers'
 import data from '../dataStore/data.json'
+import { customerSchema, orderSchema } from './schemas'
+import { merge } from 'lodash'
 
 const context = { db: data.data }
 
 const apolloServer = new ApolloServer({
-  typeDefs: customerSchema,
-  resolvers: customerResolvers,
+  typeDefs: [customerSchema, orderSchema],
+  resolvers: merge(customerResolvers, orderResolvers),
   context,
 })
 

@@ -1,16 +1,8 @@
 import { gql } from 'apollo-server-micro'
 
 export default gql`
-  type Customer {
-    id: ID
-    displayName: String
-    email: String
-    orders: [Order]
-  }
-
   type Order {
     id: ID
-    customer: Customer!
     lineItems: [OrderLineItem]
     createdOn: String
     total: Float
@@ -24,7 +16,12 @@ export default gql`
     quantity: Int
   }
 
+  extend type Customer {
+    orders: [Order]
+  }
+
   type Query {
-    customers: [Customer]
+    order(id: ID!): Order
+    orders: [Order]
   }
 `
