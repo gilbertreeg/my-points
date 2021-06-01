@@ -1,4 +1,4 @@
-import calculatePoints from '../../../../logic/calculatePoints'
+import calculatePoints from '@/logic/calculatePoints'
 
 export default {
   Query: {
