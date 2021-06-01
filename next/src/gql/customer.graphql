@@ -1,0 +1,11 @@
+query CUSTOMER($id: ID!) {
+  customer(id: $id) {
+    email
+    orders {
+      id
+      total
+      points
+      createdOn
+    }
+  }
+}

@@ -2,5 +2,6 @@ query {
   customers {
     id
     displayName
+    email
   }
 }

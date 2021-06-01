@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/logic/*": ["logic/*"]
+      "@logic/*": ["src/logic/*"],
+      "@gql/*": ["src/gql/*"],
+      "@components/*": ["src/components/*"]
     }
   }
 }
