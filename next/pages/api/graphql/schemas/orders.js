@@ -6,6 +6,7 @@ export default gql`
     lineItems: [OrderLineItem]
     createdOn: String
     total: Float
+    points: Float # TODO: Should this be a float or int?
   }
 
   type OrderLineItem {
