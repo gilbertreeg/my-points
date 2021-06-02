@@ -26,7 +26,7 @@ const createTestData = () => {
       const order = {
         id: faker.datatype.uuid(),
         customerId: customer.id,
-        createdOn: faker.date.between(new Date(2021, 0, 0), new Date(2021, 3, 0)), // Data currently is a 3 month span.
+        createdOn: faker.date.between(new Date(2021, 0, 1), new Date(2021, 3, 0)), // Data currently is a 3 month span.
       }
 
       const lineItems = []
