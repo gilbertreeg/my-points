@@ -61,4 +61,4 @@ const createTestData = () => {
 
 const data = createTestData()
 
-fs.writeFileSync('../next/dataStore/data.json', JSON.stringify(data, null, '\t'))
+fs.writeFileSync('../next/data.json', JSON.stringify(data, null, '\t'))

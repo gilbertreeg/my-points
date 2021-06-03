@@ -38,4 +38,4 @@ next/yarn-error.log*
 **/.DS_Store
 
 # data files
-next/dataStore/*
+next/data.json

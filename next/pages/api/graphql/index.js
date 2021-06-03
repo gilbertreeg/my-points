@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server-micro'
 import { customerResolvers, orderResolvers } from './resolvers'
-import data from '../../../dataStore/data.json'
+import data from '../../../data.json'
 import { customerSchema, orderSchema } from './schemas'
 import { merge } from 'lodash'
 
