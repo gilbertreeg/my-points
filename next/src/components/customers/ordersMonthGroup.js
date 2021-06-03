@@ -1,12 +1,12 @@
-import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, Heading } from '@chakra-ui/react'
+import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, Heading, Center } from '@chakra-ui/react'
 
-const OrdersMonthGroup = ({ orders, title, ...props }) => {
+const OrdersMonthGroup = ({ orders, title, dollarTotal, pointTotal, ...props }) => {
   return (
-    <Box width="30vw" {...props}>
-      <Heading as="h4" size="md">
-        {title}
-      </Heading>
-      <Table size="sm">
+    <Box {...props}>
+      <Center>
+        <Heading size="sm">{title}</Heading>
+      </Center>
+      <Table size="sm" mt="2">
         <Thead>
           <Tr>
             <Th isNumeric>Order Total</Th>
@@ -27,8 +27,8 @@ const OrdersMonthGroup = ({ orders, title, ...props }) => {
         </Tbody>
         <Tfoot>
           <Tr>
-            <Th isNumeric>Order Total...</Th>
-            <Th isNumeric>Point Total...</Th>
+            <Th isNumeric>{dollarTotal}</Th>
+            <Th isNumeric>{pointTotal}</Th>
             <Th></Th>
           </Tr>
         </Tfoot>

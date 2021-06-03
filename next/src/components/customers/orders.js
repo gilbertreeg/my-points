@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Flex, Spacer, Heading } from '@chakra-ui/react'
 import OrdersMonthGroup from './ordersMonthGroup'
 
 const monthNames = [
@@ -16,10 +16,11 @@ const monthNames = [
   'December',
 ]
 
-const Orders = ({ orders }) => {
-  // TODO: put this in a use effect hook for orders change
-  // groups orders by "month-year"
-  const ordersByMonth = orders.reduce((result, order) => {
+const Orders = ({ customer }) => {
+  let totalCustomerPoints = customer.orders.reduce((sum, o) => sum + o.points, 0)
+
+  // groups orders by "month-year" and sum up total points
+  const ordersByMonth = customer.orders.reduce((result, order) => {
     const date = new Date(order.createdOn)
     const key = `${monthNames[date.getMonth()]}-${date.getFullYear()}`
 
@@ -32,14 +33,27 @@ const Orders = ({ orders }) => {
   const orderMonthGroups = []
 
   for (let [key, value] of Object.entries(ordersByMonth)) {
-    orderMonthGroups.push({ title: key, orders: value })
+    // Calculate the point total and order total per month
+    const [pointTotal, dollarTotal] = value.reduce(
+      ([pointSum, dollarSum], order) => [(pointSum += order.points), (dollarSum += order.total)],
+      [0, 0]
+    )
+
+    orderMonthGroups.push({ title: key, orders: value, pointTotal, dollarTotal })
   }
 
   return (
     <Box>
-      {orderMonthGroups.map((props, i) => {
-        return <OrdersMonthGroup key={i} {...props} mb="5" />
-      })}
+      <Flex>
+        <Heading size="sm">{customer.displayName}'s Orders</Heading>
+        <Spacer />
+        <Heading size="sm">Points Earned: {totalCustomerPoints}</Heading>
+      </Flex>
+      <Box borderWidth="1px" borderRadius="lg" p="3">
+        {orderMonthGroups.map((props, i) => {
+          return <OrdersMonthGroup key={i} {...props} mt={i !== 0 ? 5 : 0} />
+        })}
+      </Box>
     </Box>
   )
 }

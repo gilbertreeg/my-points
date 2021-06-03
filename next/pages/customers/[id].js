@@ -1,5 +1,6 @@
 import { Box, Link as CLink } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import CUSTOMER from '@gql/customer.graphql'
 import { useQuery } from '@apollo/client'
 import Orders from '@components/customers/orders'
@@ -19,12 +20,10 @@ const Customer = () => {
 
   return (
     <Box>
-      {data?.customer && (
-        <>
-          THIS IS CUSTOMER {data?.customer?.email}
-          <Orders orders={data?.customer?.orders}></Orders>
-        </>
-      )}
+      {data?.customer && <Orders customer={data?.customer}></Orders>}
+      <Link href="/">
+        <CLink color="teal.500">All Customers</CLink>
+      </Link>
     </Box>
   )
 }

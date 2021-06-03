@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { ApolloProvider } from '@apollo/client/react'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, Container } from '@chakra-ui/react'
 
 const client = new ApolloClient({
   uri: 'http://localhost:3000/api/graphql',
@@ -12,7 +12,9 @@ function MyPointsApp({ Component, pageProps }) {
   return (
     <ChakraProvider>
       <ApolloProvider client={client}>
-        <Component {...pageProps} />
+        <Container maxW="container.sm" centerContent pt="3">
+          <Component {...pageProps} />
+        </Container>
       </ApolloProvider>
     </ChakraProvider>
   )

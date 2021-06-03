@@ -1,6 +1,6 @@
 query CUSTOMER($id: ID!) {
   customer(id: $id) {
-    email
+    displayName
     orders {
       id
       total
