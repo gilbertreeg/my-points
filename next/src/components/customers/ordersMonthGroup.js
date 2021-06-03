@@ -1,4 +1,5 @@
 import { Box, Table, Thead, Tbody, Tfoot, Tr, Th, Td, Heading, Center } from '@chakra-ui/react'
+import { formatCurrency, numberWithCommas } from '@utils/numberFormats'
 
 const OrdersMonthGroup = ({ orders, title, dollarTotal, pointTotal, ...props }) => {
   return (
@@ -18,8 +19,8 @@ const OrdersMonthGroup = ({ orders, title, dollarTotal, pointTotal, ...props }) 
           {orders.map((order) => {
             return (
               <Tr key={order.id}>
-                <Td isNumeric>{order.total}</Td>
-                <Td isNumeric>{order.points}</Td>
+                <Td isNumeric>{formatCurrency(order.total)}</Td>
+                <Td isNumeric>{numberWithCommas(order.points)}</Td>
                 <Td>{order.createdOn}</Td>
               </Tr>
             )
@@ -27,9 +28,9 @@ const OrdersMonthGroup = ({ orders, title, dollarTotal, pointTotal, ...props }) 
         </Tbody>
         <Tfoot>
           <Tr>
-            <Th isNumeric>{dollarTotal}</Th>
-            <Th isNumeric>{pointTotal}</Th>
-            <Th></Th>
+            <Th isNumeric>{formatCurrency(dollarTotal)}</Th>
+            <Th isNumeric>{numberWithCommas(pointTotal)}</Th>
+            <Th>Month Totals</Th>
           </Tr>
         </Tfoot>
       </Table>

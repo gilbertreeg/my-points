@@ -1,4 +1,5 @@
 import { Box, Flex, Spacer, Heading } from '@chakra-ui/react'
+import { numberWithCommas } from '@utils/numberFormats'
 import OrdersMonthGroup from './ordersMonthGroup'
 
 const monthNames = [
@@ -47,7 +48,7 @@ const Orders = ({ customer }) => {
       <Flex>
         <Heading size="sm">{customer.displayName}'s Orders</Heading>
         <Spacer />
-        <Heading size="sm">Points Earned: {totalCustomerPoints}</Heading>
+        <Heading size="sm">Points Earned: {numberWithCommas(totalCustomerPoints)}</Heading>
       </Flex>
       <Box borderWidth="1px" borderRadius="lg" p="3">
         {orderMonthGroups.map((props, i) => {
